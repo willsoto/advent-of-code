@@ -2,7 +2,7 @@ from typing import Tuple
 from ..utils import open_input
 
 
-def part_1():
+def part_1() -> int:
     reader = open_input(__file__).readlines()
     horizontal_position = 0
     depth = 0
@@ -21,10 +21,11 @@ def part_1():
 
     assert horizontal_position == 2073
     assert depth == 850
-    assert total == 1762050
+
+    return total
 
 
-def part_2():
+def part_2() -> int:
     reader = open_input(__file__).readlines()
     horizontal_position = 0
     depth = 0
@@ -45,7 +46,8 @@ def part_2():
 
     assert horizontal_position == 2073
     assert depth == 895269
-    assert total == 1855892637
+
+    return total
 
 
 def parse_line(line: str) -> Tuple[str, int]:
