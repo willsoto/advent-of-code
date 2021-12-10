@@ -1,5 +1,5 @@
 from ..utils import open_input
-from statistics import mode
+import collections
 
 
 def part_1() -> int:
@@ -10,14 +10,12 @@ def part_1() -> int:
     epsilon_rate_binary: str = ""
 
     for line in zip(*parsed_lines):
-        most_common_bit = mode(line)
+        # Contains tuples that look like: (value, occurences)
+        most_common_bit, least_common_bit = collections.Counter(
+            line).most_common()
 
-        gamma_rate_binary += most_common_bit
-
-        if most_common_bit == "1":
-            epsilon_rate_binary += "0"
-        else:
-            epsilon_rate_binary += "1"
+        gamma_rate_binary += most_common_bit[0]
+        epsilon_rate_binary += least_common_bit[0]
 
     gamma_rate = int(gamma_rate_binary, 2)
     epsilon_rate = int(epsilon_rate_binary, 2)
