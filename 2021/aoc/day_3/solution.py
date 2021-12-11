@@ -1,7 +1,8 @@
-from typing import List, Tuple, TypeAlias
-from ..utils import open_input
 import collections
 from enum import Enum
+from typing import List, Tuple, TypeAlias
+
+from ..utils import open_input
 
 Diagnostics: TypeAlias = List[str]
 
