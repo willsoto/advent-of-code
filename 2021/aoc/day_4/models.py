@@ -88,6 +88,9 @@ class BingoBoard:
         return self.rows + self.columns
 
     def play_number(self, number: int) -> None:
+        if self.is_winner:
+            return None
+
         for member in self.board_members:
             member.play_number(number)
 

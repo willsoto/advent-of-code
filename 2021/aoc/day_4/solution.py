@@ -63,4 +63,26 @@ def part_1() -> int:
 
 
 def part_2():
-    pass
+    boards = parse_bingo_boards()
+    (winning_board, winning_number) = find_last_winning_board_and_number(
+        boards
+    )
+
+    sum_unmarked = sum(winning_board.unmarked_members)
+    result = winning_number * sum_unmarked
+
+    return result
+
+
+def find_last_winning_board_and_number(
+    boards: List[BingoBoard],
+) -> Tuple[BingoBoard, int]:
+    for number in NUMBERS_TO_DRAW:
+        for board in boards:
+            board.play_number(number)
+
+        for board in boards:
+            if board.is_winner:
+                if len(boards) == 1:
+                    return (board, number)
+                boards.remove(board)

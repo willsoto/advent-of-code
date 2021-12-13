@@ -10,4 +10,4 @@ class TestDay4:
     def test_part_2(self):
         result = day_4.part_2()
 
-        assert result == 0
+        assert result == 17884
