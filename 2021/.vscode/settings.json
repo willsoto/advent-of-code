@@ -1,9 +1,4 @@
 {
-  "python.formatting.provider": "black",
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": true,
-  "python.pythonPath": ".venv/bin/python",
-  "editor.codeActionsOnSave": {
-    "source.organizeImports": true
-  }
+  "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.preferences.importModuleSpecifierEnding": "js"
 }
