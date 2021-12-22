@@ -64,6 +64,15 @@
     },
     "verbose": true
   },
+  "c8": {
+    "all": true,
+    "exclude": [
+      "src/**/*.spec.ts"
+    ],
+    "include": [
+      "src/**/*.ts"
+    ]
+  },
   "dependencies": {
     "lodash": "~4.17.21"
   },
