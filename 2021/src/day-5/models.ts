@@ -6,6 +6,7 @@ export type Coordinates = [Start, End];
 
 export class VentLine {
   #start: Start;
+
   #end: End;
 
   constructor(public coordinates: string[][]) {
@@ -39,9 +40,7 @@ export class VentLine {
     const xRange = this.getXRange();
     const yRange = this.getYRange();
 
-    return xRange.map((value, index) => {
-      return [value, yRange[index]];
-    });
+    return xRange.map((value, index) => [value, yRange[index]]);
   }
 
   private get distance(): number {

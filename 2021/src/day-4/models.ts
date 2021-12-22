@@ -4,6 +4,7 @@ type Board = string[][];
 
 export class BingoBoard {
   #rows: BoardMember[] = [];
+
   #columns: BoardMember[] = [];
 
   constructor(private board: Board) {}
@@ -23,9 +24,7 @@ export class BingoBoard {
       return this.#columns;
     }
 
-    this.#columns = _.zip(...this.board).map((column) => {
-      return new BoardMember(column as unknown as string[]);
-    });
+    this.#columns = _.zip(...this.board).map((column) => new BoardMember(column as unknown as string[]));
 
     return this.#columns;
   }

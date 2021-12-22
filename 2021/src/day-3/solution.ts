@@ -102,30 +102,24 @@ function filterDiagnosticsByBit(
   bit: string,
   index: number,
 ): Diagnostics {
-  return diagnostics.filter((diagnostic) => {
-    return diagnostic[index] === bit;
-  });
+  return diagnostics.filter((diagnostic) => diagnostic[index] === bit);
 }
 
 function getDiagnosticCounts(diagnostics: Diagnostics) {
   const counts = _(diagnostics)
     .chunk(1)
-    .map(([line]) => {
-      return line.split("");
-    })
+    .map(([line]) => line.split(""))
     .value();
   const zipped = _.zip(...counts);
 
   return zipped
-    .map((bits) => {
-      return (
+    .map((bits) => (
         _(bits)
           // Random undefined values? No idea where they come from
           .compact()
           .countBy()
           .value()
-      );
-    })
+      ))
     .map((count) => {
       const keys = _.keys(count);
       const maximum = _.maxBy(keys, (key) => count[key]);

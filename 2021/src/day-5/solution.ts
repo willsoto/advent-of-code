@@ -35,13 +35,9 @@ export function part2(): number {
 function parseVentLines(): VentLine[] {
   const ventLines = openInput(import.meta.url)
     .split("\n")
-    .map((line) => {
-      return line.split("->").map((part) => part.trim());
-    })
+    .map((line) => line.split("->").map((part) => part.trim()))
     .map((line) => line.map((part) => part.split(",")))
-    .filter((line) => {
-      return line.length === 2;
-    })
+    .filter((line) => line.length === 2)
     .map((line) => new VentLine(line));
 
   return ventLines;

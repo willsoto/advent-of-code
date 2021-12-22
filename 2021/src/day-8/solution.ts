@@ -6,7 +6,7 @@ interface Signal {
   outputs: string[];
 }
 
-// length of segment, number
+// Length of segment, number
 const segmentMap = new Map<string, number[]>([
   ["6", [0, 6, 9]],
   ["2", [1]],
@@ -14,19 +14,6 @@ const segmentMap = new Map<string, number[]>([
   ["4", [4]],
   ["3", [7]],
   ["7", [8]],
-]);
-
-const numberToLetters = new Map<number, string>([
-  [0, "abcefg"],
-  [1, "cf"],
-  [2, "acdeg"],
-  [3, "acdfg"],
-  [4, "bcdf"],
-  [5, "abdfg"],
-  [6, "abdefg"],
-  [7, "acf"],
-  [8, "abcdefg"],
-  [9, "abcdfg"],
 ]);
 
 export function part1(): number {
@@ -129,12 +116,12 @@ function getSignals(): Signal[] {
   return openInput(import.meta.url)
     .split("\n")
     .filter((line) => line.trim() !== "")
-    .map((line) => {
-      return line
+    .map((line) =>
+      line
         .trim()
         .split("|")
-        .map((part) => part.trim());
-    })
+        .map((part) => part.trim()),
+    )
     .map((signal) => {
       const [patterns, outputs] = signal;
 

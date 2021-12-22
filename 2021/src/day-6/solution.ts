@@ -44,7 +44,7 @@ function getInitialSchoolOfLanternfish(): School {
     .split(",")
     .map((timer) => parseInt(timer));
 
-  let school: School = {};
+  const school: School = {};
   const ages = _.range(0, 9);
 
   ages.forEach((age) => {

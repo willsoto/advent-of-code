@@ -9,14 +9,44 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "test": "ava",
-    "test:watch": "ava --watch"
+    "test:coverage": "c8 ava",
+    "test:watch": "ava --watch",
+    "typecheck": "tsc --noEmit --project tsconfig.json"
   },
   "prettier": {
     "arrowParens": "always",
     "semi": true,
     "singleQuote": false,
     "trailingComma": "all"
+  },
+  "eslintConfig": {
+    "env": {
+      "node": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended",
+      "plugin:@typescript-eslint/recommended-requiring-type-checking",
+      "prettier"
+    ],
+    "rules": {
+      "func-style": "off",
+      "no-magic-numbers": "off",
+      "no-use-before-define": "off",
+      "one-var": "off",
+      "prefer-arrow-callback": "off",
+      "sort-imports": "off"
+    }
   },
   "ava": {
     "extensions": {
@@ -40,7 +70,12 @@
   "devDependencies": {
     "@types/lodash": "~4.14.178",
     "@types/node": "~16.11.12",
+    "@typescript-eslint/eslint-plugin": "~5.8.0",
+    "@typescript-eslint/parser": "~5.8.0",
     "ava": "~3.15.0",
+    "c8": "~7.10.0",
+    "eslint": "~8.5.0",
+    "eslint-config-prettier": "~8.3.0",
     "prettier": "~2.5.1",
     "prettier-plugin-organize-imports": "~2.3.4",
     "prettier-plugin-packagejson": "~2.2.15",

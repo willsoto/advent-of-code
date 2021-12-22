@@ -22,7 +22,7 @@ export function part1(): number {
     }
 
     if (depth > previousDepth) {
-      totalLarger = totalLarger + 1;
+      totalLarger += 1;
     }
 
     previousDepth = depth;
@@ -49,7 +49,7 @@ export function part2(): number {
     }
 
     if (depth > previousDepth) {
-      totalLarger = totalLarger + 1;
+      totalLarger += 1;
     }
 
     previousDepth = depth;

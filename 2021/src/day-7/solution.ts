@@ -3,7 +3,7 @@ import { openInput } from "../utils.js";
 export function part1(): number {
   const positions = getHorizontalPositions();
 
-  let midpoint = positions[Math.floor(positions.length / 2)];
+  const midpoint = positions[Math.floor(positions.length / 2)];
   let cost = 0;
 
   positions.forEach((position) => {
@@ -12,7 +12,7 @@ export function part1(): number {
 
   if (positions.length % 2 === 0) {
     let otherCost = 0;
-    let midpoint = positions[Math.floor((positions.length - 1) / 2)];
+    const midpoint = positions[Math.floor((positions.length - 1) / 2)];
 
     positions.forEach((position) => {
       otherCost += Math.abs(position - midpoint);
@@ -29,7 +29,7 @@ export function part2(): number {
 
   let minFuel = Infinity;
   for (let i = 0; i < positions.length; i++) {
-    let fuel = positions.reduce((accum, position) => {
+    const fuel = positions.reduce((accum, position) => {
       const difference = Math.abs(position - i);
       const distance = (difference * (difference + 1)) / 2;
 

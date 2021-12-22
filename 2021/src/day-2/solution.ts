@@ -17,11 +17,11 @@ export function part1(): number {
     const { direction, distance } = line;
 
     if (direction === "forward") {
-      horizontalPosition = horizontalPosition + distance;
+      horizontalPosition += distance;
     } else if (direction === "down") {
-      depth = depth + distance;
+      depth += distance;
     } else if (direction === "up") {
-      depth = depth - distance;
+      depth -= distance;
     }
   });
 
@@ -41,12 +41,12 @@ export function part2(): number {
     const { direction, distance } = line;
 
     if (direction === "forward") {
-      horizontalPosition = horizontalPosition + distance;
-      depth = depth + aim * distance;
+      horizontalPosition += distance;
+      depth += aim * distance;
     } else if (direction === "down") {
-      aim = aim + distance;
+      aim += distance;
     } else if (direction === "up") {
-      aim = aim - distance;
+      aim -= distance;
     }
   });
 
