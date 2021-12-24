@@ -1,4 +1,13 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "typescript.preferences.importModuleSpecifierEnding": "js"
+  "typescript.preferences.importModuleSpecifierEnding": "js",
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/Thumbs.db": true,
+    "**/coverage": true
+  }
 }
