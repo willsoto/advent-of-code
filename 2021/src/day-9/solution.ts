@@ -39,9 +39,7 @@ type Height = number;
 type Heightmap = Map<Coordinates, Height>;
 
 function getHeightmap(): Heightmap {
-  const input = openInput(import.meta.url)
-    .split("\n")
-    .filter((line) => line !== "");
+  const input = openInput(import.meta.url).split("\n");
   const map: Heightmap = new Map();
 
   input.forEach((line, lineIndex) => {

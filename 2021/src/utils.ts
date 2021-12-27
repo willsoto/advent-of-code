@@ -3,8 +3,13 @@ import * as path from "node:path";
 import { fileURLToPath } from "url";
 
 export function openInput(importUrl: string, name = "input.txt"): string {
-  return fs.readFileSync(
-    path.resolve(path.dirname(fileURLToPath(importUrl)), name),
-    "utf-8",
+  return (
+    fs
+      .readFileSync(
+        path.resolve(path.dirname(fileURLToPath(importUrl)), name),
+        "utf-8",
+      )
+      // Remove any trailing newlines
+      .trim()
   );
 }
