@@ -10,7 +10,7 @@ test("part 1 example", (t) => {
 test("part 2 example", (t) => {
   const result = example2();
 
-  t.is(result, 0);
+  t.is(result, 195);
 });
 
 test("part 1", (t) => {
@@ -22,5 +22,5 @@ test("part 1", (t) => {
 test("part 2", (t) => {
   const result = part2();
 
-  t.is(result, 0);
+  t.is(result, 314);
 });

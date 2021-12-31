@@ -17,9 +17,9 @@ export function example1(): number {
 }
 
 export function example2(): number {
-  const lines = openInput(import.meta.url, "example.txt").split("\n");
+  const octopi = getOctopiGrid("example.txt");
 
-  return 0;
+  return computePart2(octopi);
 }
 
 export function part1(): number {
@@ -29,9 +29,9 @@ export function part1(): number {
 }
 
 export function part2(): number {
-  const lines = openInput(import.meta.url).split("\n");
+  const octopi = getOctopiGrid();
 
-  return 0;
+  return computePart2(octopi);
 }
 
 function parseCoordinates(coordinates: Coordinates): [x: number, y: number] {
@@ -83,16 +83,7 @@ function computePart1(octopi: Octopi): number {
       flashed.add(coordinates);
 
       const [row, col] = parseCoordinates(coordinates);
-      const adjacentOctopi: string[] = [
-        [row, col - 1].toString(), // below
-        [row, col + 1].toString(), // above
-        [row - 1, col].toString(), // left
-        [row + 1, col].toString(), // right
-        [row - 1, col - 1].toString(), // lower left
-        [row - 1, col + 1].toString(), // upper left
-        [row + 1, col - 1].toString(), // lower right
-        [row + 1, col + 1].toString(), // upper right
-      ];
+      const adjacentOctopi = getAdjacentOctopi(row, col);
 
       for (const adjacent of adjacentOctopi) {
         const level = octopi.get(adjacent);
@@ -114,4 +105,69 @@ function computePart1(octopi: Octopi): number {
   }
 
   return totalFlashes;
+}
+
+function computePart2(octopi: Octopi): number {
+  let step = 0;
+
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
+    step = step + 1;
+
+    const flashing = new Set<Coordinates>();
+    const flashed = new Set<Coordinates>();
+
+    for (const [coordinates, level] of octopi) {
+      const newLevel = level + 1;
+      octopi.set(coordinates, newLevel);
+
+      if (newLevel > MAX_ENERGY_LEVEL) {
+        flashing.add(coordinates);
+      }
+    }
+
+    for (const coordinates of flashing) {
+      // Remove the octopus from the flashing pile now that it has flashed
+      flashing.delete(coordinates);
+      // Reset the octopus
+      octopi.set(coordinates, 0);
+      // Add it to the flashed pile
+      flashed.add(coordinates);
+
+      const [row, col] = parseCoordinates(coordinates);
+      const adjacentOctopi = getAdjacentOctopi(row, col);
+
+      for (const adjacent of adjacentOctopi) {
+        const level = octopi.get(adjacent);
+        const hasFlashed = flashed.has(adjacent);
+
+        // Check that the grid position exists and that the position hasn't already flashed
+        if (level !== undefined && !hasFlashed) {
+          const newLevel = level + 1;
+          octopi.set(adjacent, newLevel);
+
+          if (newLevel > MAX_ENERGY_LEVEL) {
+            flashing.add(adjacent);
+          }
+        }
+      }
+    }
+
+    if (flashed.size === octopi.size) {
+      return step;
+    }
+  }
+}
+
+function getAdjacentOctopi(row: number, col: number): string[] {
+  return [
+    [row, col - 1].toString(), // below
+    [row, col + 1].toString(), // above
+    [row - 1, col].toString(), // left
+    [row + 1, col].toString(), // right
+    [row - 1, col - 1].toString(), // lower left
+    [row - 1, col + 1].toString(), // upper left
+    [row + 1, col - 1].toString(), // lower right
+    [row + 1, col + 1].toString(), // upper right
+  ];
 }
