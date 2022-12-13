@@ -7,15 +7,31 @@ on:
       - main
 
 jobs:
-  ci:
+  ci-2021:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: "2021"
     steps:
-      - uses: actions/checkout@v2
-      - uses: volta-cli/action@v1
+      - uses: actions/checkout@v3
+      - uses: volta-cli/action@v3
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run test:coverage
+  ci-2022:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "2022"
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: "pipx install poetry"
+        working-directory: "2022"
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+      - run: "poetry install"
+      - run: "poetry run black . --check"
+      - run: "poetry run pytest"
