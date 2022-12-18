@@ -11,3 +11,6 @@ class Sample:
 
     def print(self):
         print(self.contents)
+
+    def as_ints(self) -> list[int]:
+        return [int(line) for line in self.contents]
