@@ -141,7 +141,7 @@ class RockPaperScissorRoundPart2:
 
 def part_1() -> int:
     sample = Sample(Path(__file__).with_name("sample.txt"))
-    rounds = [RockPaperScissorRoundPart1(line) for line in sample.contents]
+    rounds = [RockPaperScissorRoundPart1(line) for line in sample.lines]
 
     total = 0
     for round in rounds:
@@ -152,7 +152,7 @@ def part_1() -> int:
 
 def part_2() -> int:
     sample = Sample(Path(__file__).with_name("sample.txt"))
-    rounds = [RockPaperScissorRoundPart2(line) for line in sample.contents]
+    rounds = [RockPaperScissorRoundPart2(line) for line in sample.lines]
 
     total = 0
     for round in rounds:

@@ -9,7 +9,7 @@ def get_calorie_totals() -> list[int]:
     calorie_totals: list[int] = []
     calorie_subtotal: int = 0
 
-    for calorie in sample.contents:
+    for calorie in sample.lines:
         if calorie != "":
             calorie_subtotal += int(calorie)
         else:
