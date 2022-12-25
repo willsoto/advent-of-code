@@ -31,7 +31,8 @@ jobs:
         working-directory: "2022"
       - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
+          python-version-file: "./2022/.python-version"
+      - run: "poetry env use $(cat .python-version)"
       - run: "poetry install"
       - run: "poetry run black . --check"
       - run: "poetry run pytest"
