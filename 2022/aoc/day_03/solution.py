@@ -1,7 +1,8 @@
-from typing import Dict
-from aoc.utils import Sample
-from pathlib import Path
 import string
+from pathlib import Path
+from typing import Dict
+
+from aoc.utils import Sample
 
 all_letters = [*string.ascii_lowercase, *string.ascii_uppercase]
 

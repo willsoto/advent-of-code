@@ -34,5 +34,6 @@ jobs:
           python-version-file: "./2022/.python-version"
       - run: "poetry env use $(cat .python-version)"
       - run: "poetry install"
+      - run: "poetry run isort . --check"
       - run: "poetry run black . --check"
       - run: "poetry run pytest"

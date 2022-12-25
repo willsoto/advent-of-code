@@ -1,6 +1,7 @@
-from aoc.utils import Sample
-from pathlib import Path
 import functools
+from pathlib import Path
+
+from aoc.utils import Sample
 
 
 def get_calorie_totals() -> list[int]:
