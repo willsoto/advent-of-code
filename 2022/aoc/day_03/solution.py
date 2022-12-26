@@ -12,7 +12,7 @@ for index, letter in enumerate(all_letters):
 
 
 def part_1() -> int:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
 
     total: int = 0
     for line in sample.lines:
@@ -32,7 +32,7 @@ def part_1() -> int:
 
 
 def part_2() -> int:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
 
     total: int = 0
     for line_group in sample.partition(3):

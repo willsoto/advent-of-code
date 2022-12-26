@@ -5,7 +5,7 @@ from aoc.utils import Sample
 
 
 def get_calorie_totals() -> list[int]:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
 
     calorie_totals: list[int] = []
     calorie_subtotal: int = 0

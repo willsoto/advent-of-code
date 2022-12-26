@@ -31,7 +31,7 @@ class SectionAssignment:
 
 
 def part_1() -> int:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
     section_assignments = [SectionAssignment(line) for line in sample.lines]
 
     total: int = 0
@@ -43,7 +43,7 @@ def part_1() -> int:
 
 
 def part_2() -> int:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
     section_assignments = [SectionAssignment(line) for line in sample.lines]
 
     total: int = 0

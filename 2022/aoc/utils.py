@@ -1,3 +1,4 @@
+import pprint
 from pathlib import Path
 from typing import Generator
 
@@ -5,16 +6,21 @@ from typing import Generator
 class Sample:
     lines: list[str] = []
 
-    def __init__(self, path: Path) -> None:
-        file = open(path, "r")
+    def __init__(self, path: Path, name: str = "sample.txt") -> None:
+        file = open(path.with_name(name), "r")
 
         self.lines = file.read().splitlines()
 
     def print(self):
-        print(self.lines)
+        pprint.pprint(self.lines)
 
     def as_ints(self) -> list[int]:
         return [int(line) for line in self.lines]
+
+    def characters(self) -> list[str]:
+        assert len(self.lines) == 1
+
+        return [*self.lines[0]]
 
     def sliding_window(
         self, window_size: int

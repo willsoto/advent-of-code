@@ -60,7 +60,7 @@ class Instruction:
 
 
 def part_1() -> str:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
     instructions = [Instruction(line) for line in sample.lines]
     stacks = make_stacks()
 
@@ -78,7 +78,7 @@ def part_1() -> str:
 
 
 def part_2() -> str:
-    sample = Sample(Path(__file__).with_name("sample.txt"))
+    sample = Sample(Path(__file__))
     instructions = [Instruction(line) for line in sample.lines]
     stacks = make_stacks()
 
