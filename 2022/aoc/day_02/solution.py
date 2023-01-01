@@ -21,7 +21,7 @@ class Action(Enum):
         elif letter == "C" or letter == "Z":
             return Action["SCISSOR"]
 
-        raise Exception("Unknown letter: %s".format(letter))
+        raise Exception("Unknown letter: %s" % letter)
 
 
 class Outcome(Enum):
@@ -41,7 +41,7 @@ class Outcome(Enum):
         elif letter == "Z":
             return Outcome.WIN
 
-        raise Exception("Unknown letter: %s".format(letter))
+        raise Exception("Unknown letter: %s" % letter)
 
 
 def choice_score(choice: Action) -> int:
@@ -66,7 +66,7 @@ class RockPaperScissorRoundPart1:
         self.me = Action.from_letter(moves[1])
 
     def __repr__(self) -> str:
-        return "%s".format(self.round_score())
+        return "%s" % self.round_score()
 
     def round_score(self) -> int:
         return self.outcome_score() + choice_score(self.me)

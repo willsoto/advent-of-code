@@ -15,6 +15,7 @@ ipython = "^8.7.0"
 [tool.poetry.group.dev.dependencies]
 isort = "^5.11.4"
 ipdb = "^0.13.11"
+flake8 = "^6.0.0"
 
 [build-system]
 requires = ["poetry-core"]

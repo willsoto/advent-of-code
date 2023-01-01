@@ -36,4 +36,5 @@ jobs:
       - run: "poetry install"
       - run: "poetry run isort . --check"
       - run: "poetry run black . --check"
+      - run: "poetry run flake8"
       - run: "poetry run pytest"
