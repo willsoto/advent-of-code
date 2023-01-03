@@ -1,6 +1,6 @@
 import pprint
 from pathlib import Path
-from typing import Generator
+from typing import Generator, NamedTuple
 
 
 class Sample:
@@ -38,3 +38,8 @@ class Sample:
             yield self.lines[index : index + size]
 
         return []
+
+
+class Coordinate(NamedTuple):
+    x: int
+    y: int
