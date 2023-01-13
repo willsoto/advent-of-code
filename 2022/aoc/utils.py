@@ -6,10 +6,15 @@ from typing import Generator, NamedTuple
 class Sample:
     lines: list[str] = []
 
-    def __init__(self, path: Path, name: str = "sample.txt") -> None:
+    def __init__(
+        self, path: Path, name: str = "sample.txt", split: bool = True
+    ) -> None:
         file = open(path.with_name(name), "r")
 
-        self.lines = file.read().splitlines()
+        if split:
+            self.lines = file.read().splitlines()
+        else:
+            self.lines = file.readlines()
 
     def print(self):
         pprint.pprint(self.lines)
