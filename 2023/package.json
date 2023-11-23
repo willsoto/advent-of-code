@@ -1,0 +1,40 @@
+{
+  "name": "@willsoto/aoc-2023",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "test": "bun test",
+    "lint": "eslint . --fix",
+    "typecheck": "tsc --project tsconfig.json"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "~6.12.0",
+    "@typescript-eslint/parser": "~6.12.0",
+    "bun-types": "~1.0.13",
+    "eslint": "~8.54.0",
+    "prettier": "~3.1.0",
+    "prettier-plugin-packagejson": "~2.4.6",
+    "typescript": "~5.2.2"
+  },
+  "dependencies": {
+    "remeda": "~1.29.0"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "es2020": true
+    },
+    "extends": [
+      "eslint:recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSameLine": true,
+    "semi": true,
+    "trailingComma": "all",
+    "singleQuote": false
+  }
+}

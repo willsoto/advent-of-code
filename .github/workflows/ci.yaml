@@ -38,3 +38,18 @@ jobs:
       - run: "poetry run black . --check"
       - run: "poetry run flake8"
       - run: "poetry run pytest"
+  ci-2023:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: "2023"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: "1.0.6"
+
+      - run: "bun install --frozen-lockfile"
+      - run: "bun run typecheck"
+      - run: "bun run lint"
+      - run: "bun run test"
