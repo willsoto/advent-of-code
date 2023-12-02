@@ -45,11 +45,10 @@ jobs:
         working-directory: "2023"
     steps:
       - uses: actions/checkout@v4
-      - uses: oven-sh/setup-bun@v1
+      - uses: "actions/setup-java@v3"
         with:
-          bun-version: "1.0.6"
-
-      - run: "bun install --frozen-lockfile"
-      - run: "bun run typecheck"
-      - run: "bun run lint"
-      - run: "bun run test"
+          distribution: "corretto"
+          java-version: "21"
+          cache: "maven"
+      - run: "java -version"
+      - run: "./mvnw verify"
