@@ -16,7 +16,7 @@ export class DefaultMap<K, V> extends Map<K, V> {
       return super.get(key) as V;
     }
     super.set(key, this.#defaultValue);
-    return this.#defaultValue;
+    return this.get(key);
   }
 }
 
@@ -30,9 +30,13 @@ export class Input {
     this.#text = fs
       .readFileSync(
         path.resolve(path.dirname(fileURLToPath(importUrl)), name),
-        "utf-8"
+        "utf-8",
       )
       // Remove any trailing newlines
       .trim();
+  }
+
+  public lines(): string[] {
+    return this.#text.split("\n").map((line) => line.trim());
   }
 }
