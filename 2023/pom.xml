@@ -20,6 +20,13 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.apache.commons</groupId>
+        <artifactId>commons-numbers-parent</artifactId>
+        <version>1.1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
         <version>5.10.1</version>
@@ -53,7 +60,16 @@
     <dependency>
       <groupId>org.apache.commons</groupId>
       <artifactId>commons-math3</artifactId>
-      <version>3.6.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-numbers-combinatorics</artifactId>
+      <version>1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jooq</groupId>
+      <artifactId>jool</artifactId>
+      <version>0.9.15</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -139,10 +155,11 @@
             <configuration>
               <configLocation>google_checks.xml</configLocation>
               <includeTestSourceDirectory>true</includeTestSourceDirectory>
-              <encoding>UTF-8</encoding>
               <consoleOutput>true</consoleOutput>
               <failsOnError>true</failsOnError>
               <failOnViolation>true</failOnViolation>
+              <inputEncoding>UTF-8</inputEncoding>
+              <suppressionsLocation>checkstyle-suppressions.xml</suppressionsLocation>
             </configuration>
           </execution>
         </executions>
