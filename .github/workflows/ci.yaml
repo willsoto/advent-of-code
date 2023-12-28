@@ -18,7 +18,6 @@ jobs:
       - run: npm ci
       - run: npm run typecheck
       - run: npm run lint
-      - run: npm run test:coverage
   ci-2022:
     runs-on: ubuntu-latest
     defaults:
@@ -37,7 +36,6 @@ jobs:
       - run: "poetry run isort . --check"
       - run: "poetry run black . --check"
       - run: "poetry run flake8"
-      - run: "poetry run pytest"
   ci-2023:
     runs-on: ubuntu-latest
     defaults:

@@ -23,3 +23,7 @@ target/
 
 ### Mac OS ###
 .DS_Store
+
+# Inputs are ignored
+# https://www.reddit.com/r/adventofcode/wiki/faqs/copyright/inputs/
+src/main/resources/*.txt
