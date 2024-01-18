@@ -3,7 +3,6 @@ package com.willsoto.aoc;
 import com.google.common.collect.ImmutableSet;
 import java.util.Set;
 import lombok.Builder;
-import org.junit.jupiter.api.Assertions;
 
 public class DaySix {
   // Input
@@ -20,8 +19,8 @@ public class DaySix {
       Race.builder().time(59796575).maxDistance(597123410321328L).build();
 
   public static void main(final String[] args) {
-    Assertions.assertEquals(220320, partOne());
-    Assertions.assertEquals(34454850, partTwoRace.differentWaysToWin());
+    System.out.printf("Part 1: %s", partOne());
+    System.out.printf("Part 2: %s", partTwoRace.differentWaysToWin());
   }
 
   private static Long partOne() {

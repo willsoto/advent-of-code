@@ -14,7 +14,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
 import lombok.ToString;
-import org.junit.jupiter.api.Assertions;
 
 public class DaySeven {
   private static final Map<String, Integer> cardByStrengthPartOne =
@@ -54,8 +53,8 @@ public class DaySeven {
   public static void main(final String[] args) {
     final var input = new Input("day_seven.txt");
 
-    Assertions.assertEquals(251287184, partOne(input));
-    Assertions.assertEquals(250757288, partTwo(input));
+    System.out.printf("Part 1: %s", partOne(input));
+    System.out.printf("Part 2: %s", partTwo(input));
   }
 
   private static Integer partOne(final Input input) {

@@ -5,7 +5,6 @@ import com.willsoto.aoc.utils.Input;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.tuple.ImmutablePair;
-import org.junit.jupiter.api.Assertions;
 
 public class DayTwo {
   private static final Pattern lineMatcher =
@@ -16,8 +15,8 @@ public class DayTwo {
   public static void main(final String[] args) {
     final var input = new Input("day_two.txt");
 
-    Assertions.assertEquals(2377, part1(input));
-    Assertions.assertEquals(71220, part2(input));
+    System.out.printf("Part 1: %s", part1(input));
+    System.out.printf("Part 2: %s", part2(input));
   }
 
   private static ImmutablePair<Integer, String> parseCubeCount(final String txt) {

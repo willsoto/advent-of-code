@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.math3.util.ArithmeticUtils;
-import org.junit.jupiter.api.Assertions;
 
 public class DayEight {
   private static final List<String> directions =
@@ -23,8 +22,8 @@ public class DayEight {
   public static void main(final String[] args) {
     final var input = new Input("day_eight.txt");
 
-    Assertions.assertEquals(14681, partOne(input));
-    Assertions.assertEquals(14321394058031L, partTwo(input));
+    System.out.printf("Part 1: %s", partOne(input));
+    System.out.printf("Part 2: %s", partTwo(input));
   }
 
   private static int partOne(final Input input) {

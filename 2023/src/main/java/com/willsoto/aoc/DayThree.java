@@ -13,7 +13,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.regex.Pattern;
-import org.junit.jupiter.api.Assertions;
 
 public class DayThree {
   private static final Pattern digits = Pattern.compile("(\\d+)");
@@ -27,8 +26,8 @@ public class DayThree {
 
     final Table<Integer, Integer, String> table = buildCharacterTable(input);
 
-    Assertions.assertEquals(539590, getTotalPartOne(lines, rangesByRowNumber, table));
-    Assertions.assertEquals(80703636, getTotalPartTwo(lines, rangesByRowNumber, table));
+    System.out.printf("Part 1: %s", getTotalPartOne(lines, rangesByRowNumber, table));
+    System.out.printf("Part 2: %s", getTotalPartTwo(lines, rangesByRowNumber, table));
   }
 
   private static Integer getTotalPartOne(

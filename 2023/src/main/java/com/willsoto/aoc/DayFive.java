@@ -10,7 +10,6 @@ import java.util.regex.Pattern;
 import lombok.Builder;
 import org.apache.commons.lang3.tuple.Pair;
 import org.apache.commons.lang3.tuple.Triple;
-import org.junit.jupiter.api.Assertions;
 
 public class DayFive {
   private static final Pattern seedsPattern = Pattern.compile("seeds: (?<seeds>.*)");
@@ -19,8 +18,8 @@ public class DayFive {
     final var input = new Input("day_five.txt");
     final var almanac = Almanac.from(input);
 
-    Assertions.assertEquals(324724204, partOne(almanac));
-    Assertions.assertEquals(104070862, partTwo(almanac));
+    System.out.printf("Part 1: %s", partOne(almanac));
+    System.out.printf("Part 2: %s", partTwo(almanac));
   }
 
   private static Double partOne(final Almanac almanac) {

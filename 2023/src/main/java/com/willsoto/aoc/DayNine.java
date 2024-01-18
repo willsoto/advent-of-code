@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 import lombok.Builder;
 import org.jooq.lambda.Seq;
-import org.junit.jupiter.api.Assertions;
 
 public class DayNine {
   public static void main(final String[] args) {
@@ -20,8 +19,8 @@ public class DayNine {
       }
     }
 
-    Assertions.assertEquals(1819125966, partOne(histories));
-    Assertions.assertEquals(1140, partTwo(histories));
+    System.out.printf("Part 1: %s", partOne(histories));
+    System.out.printf("Part 2: %s", partTwo(histories));
   }
 
   private static int partOne(final List<History> histories) {

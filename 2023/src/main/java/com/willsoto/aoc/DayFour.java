@@ -13,7 +13,6 @@ import java.util.stream.Collectors;
 import lombok.Builder;
 import lombok.Data;
 import lombok.ToString;
-import org.junit.jupiter.api.Assertions;
 
 public class DayFour {
   private static final Pattern pattern =
@@ -26,7 +25,6 @@ public class DayFour {
     final var cards = input.lines().stream().map(Card::from).toList();
 
     final var partOne = cards.stream().map(Card::score).reduce(0, Integer::sum);
-    Assertions.assertEquals(23441, partOne);
 
     final Map<Integer, Card> cardsByNumber =
         cards.stream().collect(Collectors.toMap(Card::cardNumber, Function.identity()));
@@ -35,7 +33,9 @@ public class DayFour {
     countCardCopies(cards, cardsByNumber, cardCounts);
 
     final var partTwo = cardCounts.values().stream().reduce(0, Integer::sum);
-    Assertions.assertEquals(5923918, partTwo);
+
+    System.out.printf("Part 1: %s", partOne);
+    System.out.printf("Part 2: %s", partTwo);
   }
 
   private static void countCardCopies(

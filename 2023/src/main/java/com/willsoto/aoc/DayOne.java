@@ -5,7 +5,6 @@ import com.google.common.collect.ImmutableMap;
 import com.willsoto.aoc.utils.Input;
 import java.util.List;
 import java.util.Map;
-import org.junit.jupiter.api.Assertions;
 
 public class DayOne {
   private static final Map<String, String> replacements =
@@ -37,11 +36,9 @@ public class DayOne {
             .map(Integer::parseInt)
             .reduce(0, Integer::sum);
 
-    Assertions.assertEquals(55834, partOneResult);
-
     final var partTwoResult =
         input.lines().stream()
-            .map(line -> replaceWords(line))
+            .map(DayOne::replaceWords)
             .map(line -> Splitter.fixedLength(1).trimResults().splitToList(line))
             .map(
                 characters -> {
@@ -53,7 +50,8 @@ public class DayOne {
             .map(Integer::parseInt)
             .reduce(0, Integer::sum);
 
-    Assertions.assertEquals(53221, partTwoResult);
+    System.out.printf("Part 1: %s", partOneResult);
+    System.out.printf("Part 2: %s", partTwoResult);
   }
 
   private static int findNumber(final List<String> characters) {
